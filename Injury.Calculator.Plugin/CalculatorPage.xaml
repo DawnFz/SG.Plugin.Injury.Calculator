@@ -1,0 +1,69 @@
+﻿<Page x:Class="Injury.Calculator.Plugin.CalculatorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:smoothscrollviewer="clr-namespace:DGP.Genshin.Control.Infrastructure.SmoothScrollViewer;assembly=DGP.Genshin"
+      mc:Ignorable="d" 
+      d:DesignHeight="725" d:DesignWidth="895"
+      Title="SamplePage">
+    <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="310"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="50,20,0,50" Grid.Column="0">
+            <TextBox HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Atks}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,16,0,0" TextWrapping="Wrap" Text="攻击力" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.CRIT_Rate}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="暴击率" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.CRIT_DMG}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,116,0,0" TextWrapping="Wrap" Text="暴击伤害" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Elemental_Mystery}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,166,0,0" TextWrapping="Wrap" Text="元素精通" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Element_Addition}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,216,0,0" TextWrapping="Wrap" Text="伤害加成" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Reduce_Resistance}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,266,0,0" TextWrapping="Wrap" Text="减少抗性" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Reduce_Defense}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,316,0,0" TextWrapping="Wrap" Text="减少防御" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Role_Level}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,366,0,0" TextWrapping="Wrap" Text="角色等级" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Monster_Level}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,416,0,0" TextWrapping="Wrap" Text="怪物等级" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Multiple}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,466,0,0" TextWrapping="Wrap" Text="技能倍率" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Text="{Binding data.Charge_Efficiency}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,516,0,0" TextWrapping="Wrap" Text="充能效率" VerticalAlignment="Top" FontSize="16"/>
+            <ComboBox HorizontalAlignment="Left" Margin="10,566,0,0" VerticalAlignment="Top" Width="200" SelectedIndex="{Binding TypeIndex}">
+                <ListBoxItem Content="无增幅反应"/>
+                <ListBoxItem Content="火打水或冰打火"/>
+                <ListBoxItem Content="水打火或火打冰"/>
+            </ComboBox>
+            <ComboBox HorizontalAlignment="Left" Margin="10,616,0,0" VerticalAlignment="Top" Width="200" SelectedIndex="{Binding EffectIndex}">
+                <ListBoxItem Content="无套装效果"/>
+                <ListBoxItem Content="魔女4件套效果"/>
+                <ListBoxItem Content="绝缘4件套效果"/>
+            </ComboBox>
+        </Grid>
+        <Grid Margin="0,20,50,50" Grid.Column="1">
+            <Button Content="计算大致伤害" HorizontalAlignment="Left" Margin="365,614,0,0" VerticalAlignment="Top" FontSize="16" Command="{Binding CountDamageCommand}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Text="暴击伤害"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,623,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Text="未暴击伤害"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,16,0,0" TextWrapping="Wrap" Text="角色面板最终攻击力" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,66,0,0" TextWrapping="Wrap" Text="角色面板最终暴击率[暂时无用可不填]" VerticalAlignment="Top" FontSize="16" Foreground="Gray" />
+            <TextBlock HorizontalAlignment="Left" Margin="0,116,0,0" TextWrapping="Wrap" Text="角色面板最终暴击伤害" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,166,0,0" TextWrapping="Wrap" Text="角色面板最终元素精通" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,216,0,0" TextWrapping="Wrap" Text="面板的元素/物理加成加上不呈现在面板的增伤，如莫娜大招、宗室2件" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,266,0,0" TextWrapping="Wrap" Text="减少抗性，如风套的40%或钟离盾" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,316,0,0" TextWrapping="Wrap" Text="减防和减抗不是一个东西，如雷泽4命点e、丽莎大招" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,366,0,0" TextWrapping="Wrap" Text="造成伤害的角色等级" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,416,0,0" TextWrapping="Wrap" Text="被造成伤害的怪物等级" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,466,0,0" TextWrapping="Wrap" Text="造成伤害的技能的倍率，在技能介绍中可查" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,516,0,0" TextWrapping="Wrap" Text="元素充能效率，用于计算绝缘4的效果，若不是绝缘4可空" VerticalAlignment="Top" FontSize="16" Foreground="Gray"/>
+            <TextBlock HorizontalAlignment="Left" Margin="69,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" d:Text="11" Text="{Binding YDM}"/>
+            <TextBlock HorizontalAlignment="Left" Margin="85,623,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" d:Text="00" Text="{Binding XDM}"/>
+        </Grid>
+    </Grid>
+</Page>
