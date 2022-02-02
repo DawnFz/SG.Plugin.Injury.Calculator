@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Injury.Calculator.Plugin
+﻿namespace Injury.Calculator.Plugin
 {
     public class DatasModel
     {
