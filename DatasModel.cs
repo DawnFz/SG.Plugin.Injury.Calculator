@@ -9,7 +9,7 @@
         public double Element_Addition { get; set; }//元素伤害、元素增伤
         public double Reduce_Resistance { get; set; }//减抗
         public double Reduce_Defense { get; set; }//减防
-        public double Role_Level { get; set; }//角色等级
+        public double Role_Level { get ; set; }//角色等级
         public double Monster_Level { get; set; }//怪物等级
         public double Multiple { get; set; }//倍率
         public double Charge_Efficiency { get; set; }//元素充能效率

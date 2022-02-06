@@ -44,6 +44,7 @@ namespace Injury.Calculator.Plugin
         public ICommand CountDamageCommand { get; set; }
         private void CountDamage()
         {
+            double xDM = 0, yDM = 0;
             double D_RR;
             double EM = 1 + ((278 * Data.Elemental_Mystery) / (Data.Elemental_Mystery + 1400)) / 100;//精通转换独立乘区系数
             double DMG = 1 + (Data.CRIT_DMG / 100);//爆伤乘区
@@ -62,66 +63,67 @@ namespace Injury.Calculator.Plugin
 
             if (TypeIndex == 0 && EffectIndex == 0)//无增幅+无套装
             {
-                YDM = (int)(Data.Atks * DMG * D_EA * D_M * DEF * D_RR);
-                XDM = (int)(Data.Atks * D_EA * D_M * DEF * D_RR);
+                yDM = (Data.Atks * DMG * D_EA * D_M * DEF * D_RR);
+                xDM = (Data.Atks * D_EA * D_M * DEF * D_RR);
 
             }
             else if (TypeIndex == 0 && EffectIndex == 1)//无增幅+魔女4
             {
-                YDM = (int)(Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR);
-                XDM = (int)(Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR);
+                yDM = (Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR);
+                xDM = (Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR);
 
             }
             else if (TypeIndex == 0 && EffectIndex == 2)//无增幅+绝缘4
             {
                 if (ER > 0.75)
-                {
                     ER = 0.75;
-                }
-
-                YDM = (int)(Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR);
-                XDM = (int)(Data.Atks * (D_EA + ER) * D_M * DEF * D_RR);
+                yDM = (Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR);
+                xDM = (Data.Atks * (D_EA + ER) * D_M * DEF * D_RR);
             }
             else if (TypeIndex == 1 && EffectIndex == 0)//1.5倍+无套装
             {
-                YDM = (int)(Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 1.5);
-                XDM = (int)(Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 1.5);
+                yDM = (Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 1.5);
+                xDM = (Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 1.5);
             }
             else if (TypeIndex == 1 && EffectIndex == 1)//1.5倍+魔女4
             {
-                YDM = (int)(Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 1.5);
-                XDM = (int)(Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 1.5);
+                yDM = (Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 1.5);
+                xDM = (Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 1.5);
             }
             else if (TypeIndex == 1 && EffectIndex == 2)//1.5倍+绝缘4
             {
                 if (ER > 0.75)
-                {
                     ER = 0.75;
-                }
-
-                YDM = (int)(Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
-                XDM = (int)(Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
+                yDM = (Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
+                xDM = (Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
             }
             else if (TypeIndex == 2 && EffectIndex == 0)//2倍+无套装
             {
-                YDM = (int)(Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 2);
-                XDM = (int)(Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 2);
+                yDM = (Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 2);
+                xDM = (Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * EM * 2);
             }
             else if (TypeIndex == 2 && EffectIndex == 1)//2倍+魔女4
             {
-                YDM = (int)(Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 2);
-                XDM = (int)(Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 2);
+                yDM = (Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 2);
+                xDM = (Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 2);
             }
             else if (TypeIndex == 2 && EffectIndex == 2)//2倍+绝缘4
             {
                 if (ER > 0.75)
-                {
                     ER = 0.75;
-                }
-
-                YDM = (int)(Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
-                XDM = (int)(Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
+                yDM = (Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
+                xDM = (Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
             }
+            if (yDM > 9999999)
+                yDM = 9999999;
+            else if (yDM < 1)
+                yDM = 1;
+            if (xDM > 9999999)
+                xDM = 9999999;
+            else if (xDM < 1)
+                xDM = 1;
+            XDM = (int)xDM;
+            YDM = (int)yDM;
         }
     }
 }
