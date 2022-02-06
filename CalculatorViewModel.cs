@@ -64,7 +64,7 @@ namespace Injury.Calculator.Plugin
             {
                 YDM = (int)(Data.Atks * DMG * D_EA * D_M * DEF * D_RR);
                 XDM = (int)(Data.Atks * D_EA * D_M * DEF * D_RR);
-                
+
             }
             else if (TypeIndex == 0 && EffectIndex == 1)//无增幅+魔女4
             {
@@ -75,9 +75,12 @@ namespace Injury.Calculator.Plugin
             else if (TypeIndex == 0 && EffectIndex == 2)//无增幅+绝缘4
             {
                 if (ER > 0.75)
+                {
                     ER = 0.75;
-                YDM = (int)(Data.Atks * DMG * (D_EA+ER) * D_M * DEF * D_RR);
-                XDM = (int)(Data.Atks * (D_EA+ER) * D_M * DEF * D_RR);
+                }
+
+                YDM = (int)(Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR);
+                XDM = (int)(Data.Atks * (D_EA + ER) * D_M * DEF * D_RR);
             }
             else if (TypeIndex == 1 && EffectIndex == 0)//1.5倍+无套装
             {
@@ -92,9 +95,12 @@ namespace Injury.Calculator.Plugin
             else if (TypeIndex == 1 && EffectIndex == 2)//1.5倍+绝缘4
             {
                 if (ER > 0.75)
+                {
                     ER = 0.75;
-                YDM = (int)(Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR*EM*1.5);
-                XDM = (int)(Data.Atks * (D_EA + ER) * D_M * DEF * D_RR*EM*1.5);
+                }
+
+                YDM = (int)(Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
+                XDM = (int)(Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
             }
             else if (TypeIndex == 2 && EffectIndex == 0)//2倍+无套装
             {
@@ -103,13 +109,16 @@ namespace Injury.Calculator.Plugin
             }
             else if (TypeIndex == 2 && EffectIndex == 1)//2倍+魔女4
             {
-                YDM = (int)(Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) *2);
+                YDM = (int)(Data.Atks * DMG * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 2);
                 XDM = (int)(Data.Atks * (D_EA + 0.075) * D_M * DEF * D_RR * (EM + 0.15) * 2);
             }
             else if (TypeIndex == 2 && EffectIndex == 2)//2倍+绝缘4
             {
                 if (ER > 0.75)
+                {
                     ER = 0.75;
+                }
+
                 YDM = (int)(Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
                 XDM = (int)(Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
             }
