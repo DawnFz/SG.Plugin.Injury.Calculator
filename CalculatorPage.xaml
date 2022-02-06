@@ -72,7 +72,7 @@
                             Margin="12,4,0,0" VerticalAlignment="Top">
                     <TextBox Text="{Binding Data.Charge_Efficiency}"/>
                 </wu:CardControl>
-                <wu:CardControl Title="增幅反应" Subtitle="元素充能效率，用于计算绝缘4的效果，若不是绝缘4可空"
+                <wu:CardControl Title="增幅反应" Subtitle="计算是否为增幅反应[无增幅或1.5、2.0倍伤害]"
                             Margin="12,4,0,0" VerticalAlignment="Top">
                     <ComboBox SelectedIndex="{Binding TypeIndex}">
                         <ComboBoxItem Content="无增幅反应"/>
