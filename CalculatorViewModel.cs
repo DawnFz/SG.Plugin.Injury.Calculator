@@ -76,7 +76,10 @@ namespace Injury.Calculator.Plugin
             else if (TypeIndex == 0 && EffectIndex == 2)//无增幅+绝缘4
             {
                 if (ER > 0.75)
+                {
                     ER = 0.75;
+                }
+
                 yDM = (Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR);
                 xDM = (Data.Atks * (D_EA + ER) * D_M * DEF * D_RR);
             }
@@ -93,7 +96,10 @@ namespace Injury.Calculator.Plugin
             else if (TypeIndex == 1 && EffectIndex == 2)//1.5倍+绝缘4
             {
                 if (ER > 0.75)
+                {
                     ER = 0.75;
+                }
+
                 yDM = (Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
                 xDM = (Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 1.5);
             }
@@ -110,18 +116,31 @@ namespace Injury.Calculator.Plugin
             else if (TypeIndex == 2 && EffectIndex == 2)//2倍+绝缘4
             {
                 if (ER > 0.75)
+                {
                     ER = 0.75;
+                }
+
                 yDM = (Data.Atks * DMG * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
                 xDM = (Data.Atks * (D_EA + ER) * D_M * DEF * D_RR * EM * 2);
             }
             if (yDM > 9999999)
+            {
                 yDM = 9999999;
+            }
             else if (yDM < 1)
+            {
                 yDM = 1;
+            }
+
             if (xDM > 9999999)
+            {
                 xDM = 9999999;
+            }
             else if (xDM < 1)
+            {
                 xDM = 1;
+            }
+
             XDM = (int)xDM;
             YDM = (int)yDM;
         }
