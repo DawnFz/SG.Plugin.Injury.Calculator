@@ -8,7 +8,7 @@
       xmlns:helper="clr-namespace:DGP.Genshin.Control.Helper;assembly=DGP.Genshin"
       mc:Ignorable="d" 
       d:DesignHeight="725" d:DesignWidth="895"
-      Title="SamplePage">
+      Title="伤害计算器">
     <Page.Resources>
         <Style TargetType="ComboBox" BasedOn="{StaticResource DefaultComboBoxStyle}">
             <Setter Property="MinWidth" Value="120"/>

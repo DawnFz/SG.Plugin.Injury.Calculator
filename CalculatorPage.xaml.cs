@@ -1,12 +1,14 @@
-﻿using DGP.Genshin;
+﻿using Snap.Core.DependencyInjection;
+using SystemPage = System.Windows.Controls.Page;
 
 namespace Injury.Calculator.Plugin
 {
-    public partial class CalculatorPage : System.Windows.Controls.Page
+    [View(InjectAs.Transient)]
+    public partial class CalculatorPage : SystemPage
     {
-        public CalculatorPage()
+        public CalculatorPage(CalculatorViewModel vm)
         {
-            DataContext = App.AutoWired<CalculatorViewModel>();
+            DataContext = vm;
             InitializeComponent();
         }
     }

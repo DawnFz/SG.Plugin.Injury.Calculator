@@ -7,6 +7,10 @@
 3. 感谢[Lightczx(DismissedLight)](https://github.com/Lightczx)开发的[Snap Genshin](https://github.com/DGP-Studio/Snap.Genshin)
 3. 为什么是Injury而不是hurt或者damage：我也不知道，而且懒得改了
 
+![截图](https://s2.loli.net/2022/02/24/1dhOylBzpEVYvA4.png)
 
+第3版：
 
-第一版：修正：2022.2.1
+1.适配新版SG
+
+修正：2022.2.24

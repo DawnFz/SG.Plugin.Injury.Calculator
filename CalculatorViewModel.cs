@@ -6,7 +6,7 @@ using System.Windows.Input;
 namespace Injury.Calculator.Plugin
 {
     [ViewModel(InjectAs.Transient)]
-    internal class CalculatorViewModel : ObservableObject
+    public class CalculatorViewModel : ObservableObject
     {
         public CalculatorViewModel()
         {
